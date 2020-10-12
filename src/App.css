@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-left: 300px;
 }
 
 .App-logo {
@@ -7,7 +8,7 @@
   pointer-events: none;
 }
 .my-title{
-  color: blue;
+  color: black;
   font-size: 1cm;
 }
 
@@ -39,4 +40,6 @@
   to {
     transform: rotate(360deg);
   }
+
+ 
 }
