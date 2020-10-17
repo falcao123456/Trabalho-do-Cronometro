@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css'
 
@@ -6,7 +5,16 @@ import './App.css'
 class Menu extends React.Component {
 
     render() {
-        return (<h1>Bem vindo</h1>)
+  
+        return (
+
+        <div class="menu">
+
+        <h1>Bem vindo</h1>
+        
+        </div>
+        )
+    
     }
 
 }

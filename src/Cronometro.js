@@ -10,13 +10,13 @@ class Cronometro extends React.Component {
     constructor(props){
       super(props);
       this.state={
-        stop: false,
+        stop: true,
         horas: 0,
         segundos: 0,
         minutos: 0,
         milisegundos:0,
         name: "Conômetro",
-        nameStop: "Stop",
+        nameStop: "Start",
         parcial: "",
         parciais: []
 
@@ -30,7 +30,7 @@ zerarCronometro() {
     this.state.horas = 0
     this.state.segundos = 0
     this.state.minutos = 0
-    this.state.milisegundos= -1
+    this.state.milisegundos= 0
     this.state.parcial = ""
  }
 
@@ -38,24 +38,20 @@ zerarCronometro() {
     let p = this.state.horas+ ":" + this.state.minutos + ":"+ this.state.segundos + ":" +this.state.milisegundos + "\n\n"
     this.state.parcial = this.state.parcial + p
 
-    {/*this.setState({...this.state, parciais: [...this.state.parciais, result]})
-
-    const rpl = result.replace(':', '').replace(':', '').replace(':', '').replace(':', '')
-
- console.log('=>', this.state.parciais) */}
-
-
   }
 
   pararTempo(){
     this.setState({ 
         stop: !this.state.stop 
+        
       })
-    if (this.state.stop)
-      this.state.nameStop = "Stop"
+    if (this.state.stop) 
+       this.state.nameStop = "Stop"
+    
       
     else
       this.state.nameStop = "Start"
+      
   }
 
   incrementar () {
@@ -64,17 +60,17 @@ zerarCronometro() {
          function (state, props) {
 
 
-          if(state.minutos >=4 ){
+          if(state.minutos >=60 ){
             this.zerarMinuto();
             this.incrementarHora(state);
          }
 
-          if (state.segundos >=2 ) {
+          if (state.segundos >=60 ) {
             this.zerarSegundo();
             this.incrementarMinuto(state);
           }
 
-          if(state.milisegundos >=300){
+          if(state.milisegundos >=100){
             this.zerarMilisegundo();
             this.incrementarSegundo(state);
           }
@@ -131,6 +127,8 @@ zerarCronometro() {
     })
   };
 
+  
+
   incrementarMiliSegundo (state) {
     this.setState(() => { 
       return {milisegundos: state.milisegundos +1}
@@ -148,13 +146,15 @@ zerarCronometro() {
 
     return (
      
-      <div>
+      <div class= "cro">
         <LabelCronometro name={this.state.name} />
         
         
-        <div>
+        <div class="butao">
         <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} milisegundos={this.state.milisegundos} />
-        <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />
+    <div class="butao2">
+         <Botao onClick={() => this.zerarCronometro()} label={"Zerar"}        />
+
         <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
         <Botao onClick={() => this.parcial()} label={"Pacial"} />
         <LabelCronometro name={this.state.parcial} />
@@ -166,7 +166,7 @@ zerarCronometro() {
 
 
        <br></br>
-        </div>
+       </div> </div>
         
        </div>
 

@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import TelaDeSelecao from './TelaDeSelecao'
-import Botao from './Botao'
 import './App.css';
+import TimerIcon from '@material-ui/icons/Timer';
+import IconButton from '@material-ui/core/IconButton';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import HourglassFullIcon from '@material-ui/icons/HourglassFull';
+import HomeIcon from '@material-ui/icons/Home';
 
 
 
@@ -11,11 +15,22 @@ const App = () =>{
   return(
     <>
     
-    <Botao onClick={()=>setType(1)} label={"Menu"}/> 
-    <Botao onClick={()=>setType(2)} label={"Cronometro"}/>
-    <Botao onClick={()=>setType(3)} label={"Temporizador"}/>
-    <Botao onClick={()=>setType(4)} label={"Relogio"}/>
-   
+    <IconButton color="" onClick={() => setType(1)}  aria-label={"HOMER"}>
+        <HomeIcon></HomeIcon>
+        </IconButton>
+
+    <IconButton color="" onClick={() => setType(2)}  aria-label={"Relogio"}>
+        <AccessTimeIcon></AccessTimeIcon>
+        </IconButton>
+
+    <IconButton color="" onClick={() => setType(3)}  aria-label={"Cronometro"}>
+        <TimerIcon ></TimerIcon >
+        </IconButton>
+        
+    <IconButton color="" onClick={() => setType(4)}  aria-label={"Temporizador"}>
+        <HourglassFullIcon></HourglassFullIcon>
+        </IconButton>
+
     <TelaDeSelecao type ={type}/>
     </>
   )

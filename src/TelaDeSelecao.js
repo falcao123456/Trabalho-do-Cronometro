@@ -2,6 +2,7 @@ import React from 'react'
 import Cronometro from './Cronometro'
 import Temporizador from './Temporizador'
 import Relogio from './Relogio'
+
 import Menu from './Menu'
 
 
@@ -21,7 +22,7 @@ const TelaDeSelecao = (props) =>{
   case 2:
     return (
      <>
-     <Cronometro/>
+     <Relogio/>
    </>
 
 )
@@ -30,19 +31,20 @@ const TelaDeSelecao = (props) =>{
         return (
      <>
        
-        <Temporizador/>
+        <Cronometro/>
         </>
  )
 
     case 4:
     return(
         <>
-        <Relogio/>
+        <Temporizador/>
         </>
         
         
     )
 
+  
 
 
     }
